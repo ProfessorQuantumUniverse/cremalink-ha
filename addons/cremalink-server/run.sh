@@ -45,8 +45,15 @@ export LOG_LEVEL
 
 if ! bashio::config.has_value 'advertised_ip'; then
     bashio::log.info "No advertised_ip configured, auto-detecting..."
-    IPV4_ADDRESS=$(bashio::network.ipv4_address)
-    ADVERTISED_IP="${IPV4_ADDRESS%/*}"
+    ADVERTISED_IP=$(ip -4 -o addr show scope global up \
+        | awk '{print $4}' \
+        | cut -d/ -f1 \
+        | head -n1)
+
+    if [[ -z "${ADVERTISED_IP}" ]]; then
+        bashio::log.fatal "Unable to auto-detect an IPv4 address. Please set advertised_ip manually."
+        exit 1
+    fi
 else
     bashio::log.info "Using configured advertised_ip: ${ADVERTISED_IP}"
 fi
