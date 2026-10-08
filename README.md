@@ -1,3 +1,9 @@
+> [!NOTE]
+> **Archived – no longer maintained.** This fork is no longer used. Please use the original: https://github.com/miditkl/cremalink-ha
+> The code stays available for reference, but there will be no updates or security fixes.
+>
+> *Archiviert – wird nicht mehr gepflegt. Dieser Fork wird nicht mehr genutzt. Bitte das Original verwenden: https://github.com/miditkl/cremalink-ha*
+
 # <img src="icon.png" alt="Cremalink Logo" height="45" style="vertical-align: middle; margin-right: 10px;"> cremalink for Home Assistant
 
 **The official Home Assistant integration for monitoring and controlling IoT coffee machines via Cremalink.**
